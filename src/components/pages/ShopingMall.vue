@@ -62,6 +62,13 @@
     <floor-component :floorData="floor2" :floorTitle="floorName.floor2"></floor-component>
     <floor-component :floorData="floor3" :floorTitle="floorName.floor3"></floor-component>
 
+    <!--Hot Area-->
+    <div class="hot-area">
+      <div class="hot-title">热卖商品</div>
+      <div class="hot-goods">
+        <!--这里需要一个list组件-->
+      </div>
+    </div>
   </div>
 </template>
  
@@ -70,6 +77,7 @@ import axios from "axios";
 import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import floorComponent from "../component/floorComponent";
+import toMoney from "@/filter/moneyFilter.js";
 
 export default {
   data() {
@@ -87,6 +95,11 @@ export default {
       floor3: [],
       floorName: {}
     };
+  },
+  filters: {
+    moneyFilter(money) {
+      return toMoney(money);
+    }
   },
   components: { swiper, swiperSlide, floorComponent },
   created() {
