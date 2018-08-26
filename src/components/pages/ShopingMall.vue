@@ -66,10 +66,19 @@
     <div class="hot-area">
       <div class="hot-title">热卖商品</div>
       <div class="hot-goods">
-        <!--这里需要一个list组件-->
+        <van-list>
+          <van-row gutter="20">
+            <van-col span="12" v-for="(item , index) in hotGoods" :key="index">
+              <goods-info :goodsId="item.goodsId" :goodsImage="item.image" :goodsName="item.name" :goodsPrice="item.price">
+              </goods-info>
+            </van-col>
+          </van-row>
+        </van-list>
       </div>
     </div>
+
   </div>
+
 </template>
  
 <script>
@@ -78,6 +87,7 @@ import "swiper/dist/css/swiper.css";
 import { swiper, swiperSlide } from "vue-awesome-swiper";
 import floorComponent from "../component/floorComponent";
 import toMoney from "@/filter/moneyFilter.js";
+import goodsInfo from "../component/goodsInfoComponent";
 
 export default {
   data() {
@@ -93,15 +103,16 @@ export default {
       floor1: [],
       floor2: [],
       floor3: [],
-      floorName: {}
+      floorName: {},
+      hotGoods: []
     };
   },
-  filters: {
+   filters: {
     moneyFilter(money) {
       return toMoney(money);
     }
   },
-  components: { swiper, swiperSlide, floorComponent },
+  components: { swiper, swiperSlide, floorComponent, goodsInfo },
   created() {
     axios({
       url: "https://www.easy-mock.com/mock/5b727e2877e37d07a4181f3d/mock",
@@ -118,6 +129,7 @@ export default {
           this.floor2 = response.data.data.floor2; //楼层2数据
           this.floor3 = response.data.data.floor3; //楼层3数据
           this.floorName = response.data.data.floorName; //楼层标题
+          this.hotGoods = response.data.data.hotGoods; //热卖商品
         }
       })
       .catch(error => {
@@ -205,6 +217,6 @@ export default {
   width: 99%;
   border-right: 1px solid #eee;
   text-align: center;
-  font-size: 0.6rem;
+  font-size: 0.7rem;
 }
 </style>
