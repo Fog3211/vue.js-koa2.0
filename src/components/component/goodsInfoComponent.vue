@@ -32,4 +32,7 @@ export default {
   text-overflow: ellipsis;
   white-space: nowrap;
 }
+.goods-info{
+  border: 1px solid #ccc;
+}
 </style>

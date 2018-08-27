@@ -67,7 +67,7 @@
       <div class="hot-title">热卖商品</div>
       <div class="hot-goods">
         <van-list>
-          <van-row gutter="20">
+          <van-row>
             <van-col span="12" v-for="(item , index) in hotGoods" :key="index">
               <goods-info :goodsId="item.goodsId" :goodsImage="item.image" :goodsName="item.name" :goodsPrice="item.price">
               </goods-info>
@@ -88,6 +88,7 @@ import { swiper, swiperSlide } from "vue-awesome-swiper";
 import floorComponent from "../component/floorComponent";
 import toMoney from "@/filter/moneyFilter.js";
 import goodsInfo from "../component/goodsInfoComponent";
+import url from "@/serviceAPI.config.js";
 
 export default {
   data() {
@@ -107,7 +108,7 @@ export default {
       hotGoods: []
     };
   },
-   filters: {
+  filters: {
     moneyFilter(money) {
       return toMoney(money);
     }
@@ -115,7 +116,7 @@ export default {
   components: { swiper, swiperSlide, floorComponent, goodsInfo },
   created() {
     axios({
-      url: "https://www.easy-mock.com/mock/5b727e2877e37d07a4181f3d/mock",
+      url: url.getShoppingMallInfo,
       method: "get"
     })
       .then(response => {
@@ -164,13 +165,13 @@ export default {
   padding-left: 0.3rem;
 }
 .search-button {
-  background-color: rgb(228, 230, 145);
+  background: rgba(0, 0, 0, 0);
   margin-left: 0.4rem;
   border: 0;
   font-size: 1rem;
   min-width: 2rem;
   min-height: 1.2rem;
-  color: magenta;
+  color: orangered;
 }
 
 .swiper-area {
@@ -210,7 +211,7 @@ export default {
 }
 
 .recommend-body {
-  border-bottom: 1px solid #eee;
+  border-bottom: 1px solid #ccc;
 }
 
 .recommend-item {
@@ -218,5 +219,9 @@ export default {
   border-right: 1px solid #eee;
   text-align: center;
   font-size: 0.7rem;
+}
+
+.hot-title {
+  color: #e5017d;
 }
 </style>

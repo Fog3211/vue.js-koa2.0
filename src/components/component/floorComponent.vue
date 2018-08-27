@@ -42,18 +42,19 @@ export default {
   display: flex;
   flex-direction: row;
   background-color: #fff;
-  border-bottom: 1px solid #ddd;
+  border: 1px solid #ddd;
+
 }
 .floor-anomaly div {
-  width: 10rem;
   box-sizing: border-box;
   -webkit-box-sizing: border-box;
 }
 .floor-one {
-  border: 1px solid #ddd;
+  border-right: 1px solid #ccc;
+  border-top: 1px solid #ccc;
 }
 .floor-two {
-  border: 1px solid #ddd;
+  border: 1px solid #ccc;
 }
 
 .floor-rule {
@@ -65,11 +66,11 @@ export default {
 .floor-rule div {
   -webkit-box-sizing: border-box;
   box-sizing: border-box;
-  width: 10rem;
-  border-bottom: 1px solid #ddd;
+  width: 50%;
+  border: 1px solid #ccc;
 }
 .floor-rule div:nth-child(odd) {
-  border-right: 1px solid #ddd;
+  border: 1px solid #ccc;
 }
 .floor-title{
   font-size: 0.9rem;
