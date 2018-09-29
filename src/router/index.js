@@ -12,5 +12,5 @@ export default new Router({
       component: ShopingMall
     }
   ],
-  mode:'history',
+  // mode:'history',
 })
