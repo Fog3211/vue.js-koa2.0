@@ -1,0 +1,10 @@
+<!DOCTYPE html><html><head><meta charset=utf-8><meta name=viewport content="width=device-width,initial-scale=1" user-scalable=no><title>vueproject</title><link href=././static/css/app.97793bfdd0393431971aad526bdb8c05.css rel=stylesheet></head><body><div id=app></div><script type=text/javascript src=././static/js/manifest.cddac9b1754f4ef0e984.js></script><script type=text/javascript src=././static/js/vendor.4f0c503b9977b8255402.js></script><script type=text/javascript src=././static/js/app.1305403ff7516bbac429.js></script></body><script>// 移动端适配rem
+  let htmlWidth = document.documentElement.clientWidth || document.body.clientWidth;
+
+  // 解决页面字体过大的问题
+  if (htmlWidth > 750) {
+    htmlWidth = 750
+  }
+
+  let htmlDom = document.getElementsByTagName('html')[0];
+  htmlDom.style.fontSize = htmlWidth / 20 + 'px';</script></html>
