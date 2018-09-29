@@ -1,6 +1,7 @@
 # vueproject
 
-> A Vue.js project
+技术栈：vue+koa
+- [在线预览](https://fog3211.github.io/vue.js-koa2.0/dist/index.html)
 
 ## Build Setup
 
